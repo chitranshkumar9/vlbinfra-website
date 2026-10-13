@@ -281,3 +281,11 @@ section.block{padding-block:88px}
   .hero-plate{gap:14px;padding:14px 18px 14px 14px}
   .hero-plate img{width:64px}
 }
+/* One-line name beside the logo */
+.hero .hero-plate h1{font-size:clamp(26px,3.4vw,46px);line-height:1.05;letter-spacing:.03em}
+.hero .hero-plate h1 span{display:inline;font-size:inherit;letter-spacing:inherit;margin:0;line-height:inherit}
+.hero .hero-plate h1 .dash{color:#a87f2c;font-weight:500}
+.hero .hero-plate h1 .full{color:#14233f;font-weight:700}
+.hero .hero-plate img{width:84px}
+@media (max-width:560px){.hero .hero-plate h1{font-size:24px}.hero-plate img{width:58px}}
+@media (min-width:900px){.hero .hero-plate h1{font-size:clamp(28px,2.6vw,36px)}}
