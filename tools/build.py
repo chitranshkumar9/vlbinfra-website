@@ -148,6 +148,8 @@ def page(filename, title, description, body):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#14233f">
 <title>{e(tab_title)}</title>
 <meta name="description" content="{e(description)}">
 <meta property="og:title" content="{e(full_title)}">

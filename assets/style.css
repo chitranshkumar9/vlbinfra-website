@@ -7,13 +7,8 @@
   --f-body:"Barlow","Segoe UI",Roboto,Arial,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
   --wrap:1160px;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#0c1322; --surface:#121c31; --ink:#e7ebf3; --muted:#9ba6bc; --line:#24314d;
-  --navy:#0f1b33; --navy-2:#1a2b4b; --gold:#d4ad58; --gold-soft:#5a4a26; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --paper:#0c1322; --surface:#121c31; --ink:#e7ebf3; --muted:#9ba6bc; --line:#24314d;
-  --navy:#0f1b33; --navy-2:#1a2b4b; --gold:#d4ad58; --gold-soft:#5a4a26; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -317,9 +312,6 @@ section.block{padding-block:88px}
 .hero-logo .lede{margin:16px 0 32px}
 @media (max-width:900px){.hero-logo-img{width:150px}}
 @media (max-width:560px){.hero-logo-img{width:120px}}
-/* Keep the Contact button visible in dark mode */
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .nav .cta{background:var(--gold);color:#14233f}}
-:root[data-theme="dark"] .nav .cta{background:var(--gold);color:#14233f}
 /* Services grid: even rows at every width (3x2 desktop, 2x3 tablet, 1 column phone) */
 @media (min-width:561px) and (max-width:900px){
   .svc-mini a:last-child:nth-child(odd){grid-column:1/-1}
