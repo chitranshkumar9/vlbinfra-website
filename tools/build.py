@@ -134,6 +134,7 @@ def page(filename, title, description, body):
         f'      <a href="{href}"{" aria-current=\"page\"" if href == filename else ""}>{label}</a>'
         for href, label in NAV)
     cta_current = ' aria-current="page"' if filename == "contact.html" else ""
+    tab_title = "VLB" if filename == "index.html" else f"{title} | VLB"
     full_title = "Vaibhav Laxmi Builders (VLB) — Government Civil Contractor, Delhi NCR" if filename == "index.html" else f"{title} | Vaibhav Laxmi Builders (VLB)"
     svc_links = "\n".join(f'          <li><a href="services.html#{s["id"]}">{e(s["name"])}</a></li>' for s in SERVICES)
     return f'''<!doctype html>
@@ -141,15 +142,16 @@ def page(filename, title, description, body):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{e(full_title)}</title>
+<title>{e(tab_title)}</title>
 <meta name="description" content="{e(description)}">
 <meta property="og:title" content="{e(full_title)}">
 <meta property="og:description" content="{e(description)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.vlbinfra.com/{'' if filename == 'index.html' else filename}">
 <meta property="og:image" content="https://www.vlbinfra.com/assets/logo.png">
-<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-<link rel="alternate icon" href="assets/logo.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -532,7 +534,7 @@ if __name__ == "__main__":
         (ROOT / "projects.html").write_text(
             '<!doctype html><html lang="en"><head><meta charset="utf-8">'
             '<meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=index.html">'
-            '<link rel="canonical" href="https://www.vlbinfra.com/"><title>Vaibhav Laxmi Builders</title></head>'
+            '<link rel="canonical" href="https://www.vlbinfra.com/"><title>VLB</title></head>'
             '<body><p><a href="index.html">Go to the Vaibhav Laxmi Builders home page</a></p></body></html>\n',
             encoding="utf-8")
     for name, fn in pages:
