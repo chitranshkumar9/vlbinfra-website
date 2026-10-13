@@ -54,4 +54,22 @@
       }
     });
   }
+  // Dark / light mode toggle (remembers the choice)
+  var tb = document.querySelector('.theme-btn');
+  if (tb) {
+    var root = document.documentElement;
+    var isDark = function () {
+      var t = root.getAttribute('data-theme');
+      if (t) return t === 'dark';
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    };
+    var label = function () { tb.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode'); };
+    label();
+    tb.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('vlb-theme', next); } catch (e) {}
+      label();
+    });
+  }
 })();

@@ -148,7 +148,8 @@ def page(filename, title, description, body):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="light dark">
+<script>try{{var t=localStorage.getItem("vlb-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}}catch(e){{}}</script>
 <meta name="theme-color" content="#14233f">
 <title>{e(tab_title)}</title>
 <meta name="description" content="{e(description)}">
@@ -172,6 +173,10 @@ def page(filename, title, description, body):
       <span class="mark"><img src="assets/logo.svg" alt="VLB logo"></span>
       <span><b>Vaibhav Laxmi Builders</b><small>Govt. Civil Contractor · Delhi NCR</small></span>
     </a>
+    <button class="theme-btn" type="button" aria-label="Switch to dark mode" title="Dark / light mode">
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+    </button>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
