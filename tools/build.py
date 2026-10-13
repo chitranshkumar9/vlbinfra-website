@@ -10,14 +10,14 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # ============================ CONTENT ============================
 
-PHONE_DISPLAY = "+91 98370 16102"
-PHONE_TEL = "+919837016102"
-WHATSAPP = "919837016102"
+PHONE_DISPLAY = "+91 80776 76214"
+PHONE_TEL = "+918077676214"
+WHATSAPP = "918077676214"
 EMAIL = "info@vlbinfra.com"
 ADDRESS = "3/2561, Dehradun Road, Janak Nagar, Saharanpur, Uttar Pradesh 247001"
 MAPS = "https://www.google.com/maps/search/?api=1&query=3%2F2561+Dehradun+Road+Janak+Nagar+Saharanpur+247001"
 
-REGISTRATION = "Top class"          # e.g. "Class A — UP PWD"
+REGISTRATION = "A+ / Class 1"          # e.g. "Class A — UP PWD"
 YEARS = "30+"
 
 # Departments VLB has worked for. Leave empty to show the general line only.
@@ -25,40 +25,34 @@ DEPARTMENTS = []                    # e.g. ["UP PWD", "Irrigation Department", .
 
 SERVICES = [
     {
-        "id": "roads", "icon": "road", "name": "Roads & Highways",
-        "short": "Bituminous roads, widening and strengthening, link roads and highway works.",
-        "scope": ["New bituminous roads", "Widening & strengthening", "Rural & link roads",
-                  "Highway works", "Resurfacing & maintenance", "Road furniture & markings"],
+        "id": "roads", "icon": "road", "name": "Roads, Highways & Bypasses",
+        "short": "New roads, highways, bypasses, widening and strengthening works.",
+        "scope": ["Highways", "Bypasses", "New road construction", "Widening & strengthening",
+                  "CC & bituminous roads", "Resurfacing & maintenance"],
+    },
+    {
+        "id": "bridges", "icon": "bridge", "name": "Bridges",
+        "short": "Bridges and cross-structures for road and irrigation projects.",
+        "scope": ["Major & minor bridges", "Girder bridges", "Culverts", "Cross-structures",
+                  "Approach roads", "Protection works"],
+    },
+    {
+        "id": "irrigation", "icon": "canal", "name": "Irrigation Works",
+        "short": "Canal and irrigation works for state irrigation departments.",
+        "scope": ["Canal construction", "Canal lining", "Head regulators & falls",
+                  "Cross-drainage works", "Embankments", "Repair & strengthening"],
+    },
+    {
+        "id": "education", "icon": "school", "name": "Schools & Colleges",
+        "short": "School, college and campus buildings for education departments.",
+        "scope": ["School buildings", "College buildings", "Classroom blocks",
+                  "Hostels", "Boundary walls & gates", "Finishing & services"],
     },
     {
         "id": "buildings", "icon": "building", "name": "Government Buildings",
-        "short": "Offices, schools, hospitals, residential quarters and institutional buildings.",
-        "scope": ["Administrative offices", "Schools & colleges", "Hospitals & health centres",
-                  "Staff quarters", "Boundary walls & gates", "Finishing & services"],
-    },
-    {
-        "id": "bridges", "icon": "bridge", "name": "Bridges & Culverts",
-        "short": "Minor bridges, box and pipe culverts, causeways and cross-drainage structures.",
-        "scope": ["Minor bridges", "Box culverts", "Pipe culverts", "Causeways",
-                  "Cross-drainage works", "Protection works"],
-    },
-    {
-        "id": "drainage", "icon": "drain", "name": "Drainage Works",
-        "short": "Covered and open drains, nalas, storm-water and sewer line works.",
-        "scope": ["Covered & open drains", "Nala construction", "Storm-water drainage",
-                  "Sewer lines", "Desilting & repair", "Urban drainage"],
-    },
-    {
-        "id": "cc-roads", "icon": "paving", "name": "CC Roads & Paving",
-        "short": "Cement concrete roads, interlocking tile paving and internal streets.",
-        "scope": ["Cement concrete roads", "Interlocking paver blocks", "Internal streets",
-                  "Kerbs & footpaths", "Parking areas", "Colony development"],
-    },
-    {
-        "id": "high-rise", "icon": "tower", "name": "Commercial & High-Rise",
-        "short": "Multi-storey commercial and public buildings, from foundation to finishing.",
-        "scope": ["RCC framed structures", "Foundations", "Multi-storey buildings",
-                  "Commercial complexes", "Structural works", "Finishing works"],
+        "short": "Offices and institutional buildings for government departments.",
+        "scope": ["Administrative offices", "Institutional buildings", "Staff quarters",
+                  "RCC framed structures", "Boundary walls & gates", "Finishing & services"],
     },
 ]
 
@@ -103,6 +97,8 @@ ICONS = {
     "road": '<path d="M14 4L6 36M26 4l8 32M20 6v5M20 17v6M20 29v5"/>',
     "building": '<path d="M4 34h32M6 34V14l14-8 14 8v20M12 34V20M20 34V20M28 34V20M6 14h28"/>',
     "bridge": '<path d="M2 16h36M4 16v14M36 16v14M8 30c0-8 5-12 12-12s12 4 12 12M2 30h36"/>',
+    "canal": '<path d="M2 12h8l6 16h8l6-16h8M10 12l6 16M30 12l-6 16M4 34h32M12 22h16"/>',
+    "school": '<path d="M4 34h32M7 34V18h26v16M4 18l16-10 16 10M17 34v-8h6v8M11 22h3M26 22h3M20 13v.5"/>',
     "drain": '<path d="M6 8v16a14 14 0 0 0 28 0V8M6 8h6M28 8h6M12 8v16a8 8 0 0 0 16 0V8M14 30c2 1 4 1.5 6 1.5"/>',
     "paving": '<path d="M4 6h32v28H4zM4 15h32M4 25h32M15 6v9M25 15v10M15 25v9"/>',
     "tower": '<path d="M8 36V12l8-4v28M16 36V4h10v32M26 36V14h8v22M4 36h32M19 10h4M19 16h4M19 22h4M19 28h4"/>',
@@ -132,7 +128,7 @@ def page(filename, title, description, body):
         f'      <a href="{href}"{" aria-current=\"page\"" if href == filename else ""}>{label}</a>'
         for href, label in NAV)
     cta_current = ' aria-current="page"' if filename == "contact.html" else ""
-    full_title = "Vaibhav Laxmi Builders (VLB) — Government Civil Contractor, Saharanpur" if filename == "index.html" else f"{title} | Vaibhav Laxmi Builders (VLB)"
+    full_title = "Vaibhav Laxmi Builders (VLB) — Government Civil Contractor, Delhi NCR" if filename == "index.html" else f"{title} | Vaibhav Laxmi Builders (VLB)"
     svc_links = "\n".join(f'          <li><a href="services.html#{s["id"]}">{e(s["name"])}</a></li>' for s in SERVICES)
     return f'''<!doctype html>
 <html lang="en">
@@ -158,7 +154,7 @@ def page(filename, title, description, body):
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="Vaibhav Laxmi Builders home">
       <span class="mark"><img src="assets/logo.svg" alt="VLB logo"></span>
-      <span><b>Vaibhav Laxmi Builders</b><small>Govt. Civil Contractor · Saharanpur</small></span>
+      <span><b>Vaibhav Laxmi Builders</b><small>Govt. Civil Contractor · Delhi NCR</small></span>
     </a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -180,9 +176,9 @@ def page(filename, title, description, body):
       <div>
         <a class="brand" href="index.html">
           <span class="mark"><img src="assets/logo.svg" alt=""></span>
-          <span><b>Vaibhav Laxmi Builders</b><small>VLB · Saharanpur, U.P.</small></span>
+          <span><b>Vaibhav Laxmi Builders</b><small>VLB · Delhi NCR</small></span>
         </a>
-        <p>Government civil contractor executing roads, bridges, drainage and government buildings across Uttar Pradesh.</p>
+        <p>Government civil contractor executing roads, highways, bridges, irrigation works and government buildings across Delhi NCR.</p>
       </div>
       <div>
         <h4>Services</h4>
@@ -231,20 +227,19 @@ def particulars():
           <dt>Firm</dt><dd>Vaibhav Laxmi Builders</dd>
           <dt>Category</dt><dd>Government civil contractor</dd>
           <dt>Registration</dt><dd>{e(REGISTRATION)}</dd>
-          <dt>Works for</dt><dd>UP State &amp; Central Govt.</dd>
-          <dt>Head office</dt><dd>Saharanpur, U.P.</dd>
+          <dt>Works for</dt><dd>Delhi NCR Govt. departments</dd>
         </dl>
       </aside>'''
 
 
 def dept_band():
-    tags = DEPARTMENTS or ["Uttar Pradesh Government", "Central Government"]
+    tags = DEPARTMENTS or ["State Government", "Central Government"]
     tag_html = "".join(f"<span>{e(t)}</span>" for t in tags)
     return f'''  <section class="dept">
     <div class="wrap">
       <div><span class="eyebrow">Who we build for</span><h2>Trusted by government departments</h2></div>
       <div>
-        <p style="margin-bottom:22px">VLB has executed works for leading departments of the Government of Uttar Pradesh and the Central Government.</p>
+        <p style="margin-bottom:22px">VLB has executed works for State and Central Government departments across Delhi NCR.</p>
         <div class="tags">{tag_html}</div>
       </div>
     </div>
@@ -319,8 +314,8 @@ def home():
       <div>
         <img class="hero-logo-img" src="assets/logo-light.svg" alt="VLB – Vaibhav Laxmi Builders">
         <h1 class="sr-only">VLB – Vaibhav Laxmi Builders</h1>
-        <p class="hero-tag">Government civil contractor · <em>Roads · Bridges · Buildings · Drainage</em></p>
-        <p class="lede">Vaibhav Laxmi Builders executes roads, bridges, drainage and government buildings for departments of the Uttar Pradesh and Central Government, from our head office in Saharanpur.</p>
+        <p class="hero-tag">Government civil contractor · <em>Roads · Bridges · Irrigation · Buildings</em></p>
+        <p class="lede">Vaibhav Laxmi Builders executes roads, highways, bridges, irrigation works, schools, colleges and government buildings for State and Central Government departments across Delhi NCR.</p>
         <div class="actions">
           <a class="btn btn-gold" href="about.html">About VLB</a>
           <a class="btn btn-ghost" href="contact.html#enquiry">Send an enquiry</a>
@@ -332,9 +327,9 @@ def home():
 
   <div class="strip">
     <div class="wrap">
-      <div class="stat"><b>Family-run</b><span>Led by the founding family</span></div>
+      <div class="stat"><b>100%</b><span>On-time delivery</span></div>
       <div class="stat"><b>{e(REGISTRATION)}</b><span>Government contractor registration</span></div>
-      <div class="stat"><b>State &amp; Central</b><span>Departments served across Uttar Pradesh</span></div>
+      <div class="stat"><b>State &amp; Central</b><span>Departments served across Delhi NCR</span></div>
     </div>
   </div>
 
@@ -343,10 +338,10 @@ def home():
       <div class="about-grid">
         <div>
           <span class="eyebrow">About VLB</span>
-          <p class="big" style="margin-top:16px">We build the roads people drive on, the drains that keep towns dry, and the buildings where government serves the public.</p>
+          <p class="big" style="margin-top:16px">We build the roads and bridges people travel on, the canals that water the fields, and the schools and offices where government serves the public.</p>
         </div>
         <div>
-          <p>Founded and led by the same family, VLB has grown from a Saharanpur contracting firm into a top-class registered government contractor trusted with large public works.</p>
+          <p>VLB is an A+ / Class 1 registered government contractor, trusted by State and Central Government departments across Delhi NCR with roads, bridges, irrigation works and public buildings.</p>
           <p>Every project is run to the department's drawings, specifications and timelines, with our own site teams, supervisors and machinery.</p>
           <a class="more" href="about.html">More about VLB →</a>
         </div>
@@ -358,7 +353,7 @@ def home():
     <div class="wrap">
       <div class="head">
         <div><span class="eyebrow">Services</span><h2>What we build</h2></div>
-        <p>Civil works for government departments, from rural link roads to multi-storey public buildings.</p>
+        <p>Civil works for government departments, from highways and bridges to irrigation works and public buildings.</p>
       </div>
       <div class="svc-mini">
 {svc}
@@ -371,22 +366,22 @@ def home():
 
 {proj_section}{cta_band()}'''
     return page("index.html", "Home",
-                "Vaibhav Laxmi Builders (VLB), Saharanpur: government civil contractor for roads, bridges, drainage and government buildings across Uttar Pradesh.",
+                "Vaibhav Laxmi Builders (VLB): A+ / Class 1 government civil contractor for roads, highways, bridges, irrigation works, schools, colleges and government buildings across Delhi NCR.",
                 body)
 
 
 def about():
-    body = f'''{page_hero("About", "About VLB", "A family-run government civil contractor from Saharanpur, executing public works across Uttar Pradesh.")}
+    body = f'''{page_hero("About", "About VLB", "A+ / Class 1 government civil contractor executing public works for State and Central Government departments across Delhi NCR.")}
 
   <section class="block">
     <div class="wrap">
       <div class="about-grid">
         <div>
           <span class="eyebrow">Our story</span>
-          <p class="big" style="margin-top:16px">Three decades of building the public infrastructure of Western Uttar Pradesh.</p>
+          <p class="big" style="margin-top:16px">Building the public infrastructure of Delhi NCR.</p>
         </div>
         <div>
-          <p>Vaibhav Laxmi Builders was founded in Saharanpur and is run by its founding family. What began as a local contracting firm is today a top-class registered government contractor, trusted by departments of the Uttar Pradesh and Central Government with roads, bridges, drainage and public buildings.</p>
+          <p>Vaibhav Laxmi Builders is an A+ / Class 1 registered government contractor, trusted by State and Central Government departments across Delhi NCR with roads, highways, bypasses, bridges, irrigation works, schools, colleges and government buildings.</p>
           <p>We work to the department's drawings, specifications and timelines, with our own engineers, supervisors, labour and machinery on every site.</p>
         </div>
       </div>
@@ -401,7 +396,7 @@ def about():
       </div>
       <ul class="checks" style="max-width:820px">
         <li>{CHECK}<span><b>Specification-first execution.</b> Work done to department drawings, schedules and quality norms.</span></li>
-        <li>{CHECK}<span><b>Local roots.</b> Based in Saharanpur, with deep knowledge of working conditions across Western Uttar Pradesh.</span></li>
+        <li>{CHECK}<span><b>100% on-time delivery.</b> Every work handed over to the department on schedule.</span></li>
         <li>{CHECK}<span><b>Own teams on site.</b> Experienced engineers, supervisors and labour managed directly by VLB.</span></li>
         <li>{CHECK}<span><b>Timely handover.</b> Planned mobilisation and daily progress tracking until completion.</span></li>
       </ul>
@@ -426,7 +421,7 @@ def about():
 {dept_band()}
 
 {cta_band()}'''
-    return page("about.html", "About", "About Vaibhav Laxmi Builders (VLB): a family-run government civil contractor in Saharanpur executing public works.", body)
+    return page("about.html", "About", "About Vaibhav Laxmi Builders (VLB): A+ / Class 1 government civil contractor executing public works across Delhi NCR.", body)
 
 
 def services():
@@ -435,7 +430,7 @@ def services():
           <div><h2>{e(s["name"])}</h2><p>{e(s["short"])}</p></div>
           <ul class="scope">{"".join(f"<li>{e(x)}</li>" for x in s["scope"])}</ul>
         </article>''' for s in SERVICES)
-    body = f'''{page_hero("Services", "Services", "Civil works for government departments, from rural link roads to multi-storey public buildings.")}
+    body = f'''{page_hero("Services", "Services", "Civil works for government departments, from highways and bridges to irrigation works and public buildings.")}
 
   <section class="block">
     <div class="wrap">
@@ -446,7 +441,7 @@ def services():
   </section>
 
 {cta_band()}'''
-    return page("services.html", "Services", "Services of Vaibhav Laxmi Builders: roads and highways, government buildings, bridges and culverts, drainage, CC roads and high-rise construction.", body)
+    return page("services.html", "Services", "Services of Vaibhav Laxmi Builders: roads, highways and bypasses, bridges, irrigation works, schools and colleges, and government buildings.", body)
 
 
 def projects():
@@ -460,7 +455,7 @@ def projects():
       </div>'''
     else:
         content = empty_projects()
-    body = f'''{page_hero("Projects", "Projects", "Government works executed by Vaibhav Laxmi Builders across Uttar Pradesh.")}
+    body = f'''{page_hero("Projects", "Projects", "Government works executed by Vaibhav Laxmi Builders across Delhi NCR.")}
 
   <section class="block">
     <div class="wrap">
@@ -469,17 +464,17 @@ def projects():
   </section>
 
 {cta_band()}'''
-    return page("projects.html", "Projects", "Completed and ongoing government projects by Vaibhav Laxmi Builders (VLB) across Uttar Pradesh.", body)
+    return page("projects.html", "Projects", "Completed and ongoing government projects by Vaibhav Laxmi Builders (VLB) across Delhi NCR.", body)
 
 
 def contact():
-    body = f'''{page_hero("Contact", "Contact us", "For tenders, enquiries, vendor and subcontracting partnerships, call or write to our head office.")}
+    body = f'''{page_hero("Contact", "Contact us", "For tenders, enquiries, vendor and subcontracting partnerships, call or write to us.")}
 
   <section class="block">
     <div class="wrap">
       <div class="contact">
         <div class="card">
-          <span class="k">Head office</span>
+          <span class="k">Address</span>
           <span class="v">{e(ADDRESS)}</span>
           <a class="go" href="{MAPS}" target="_blank" rel="noopener">Open in Google Maps →</a>
         </div>
@@ -520,7 +515,7 @@ def contact():
       </div>
     </div>
   </section>'''
-    return page("contact.html", "Contact", "Contact Vaibhav Laxmi Builders (VLB), Dehradun Road, Saharanpur. Phone +91 98370 16102, email info@vlbinfra.com.", body)
+    return page("contact.html", "Contact", "Contact Vaibhav Laxmi Builders (VLB). Phone +91 80776 76214, email info@vlbinfra.com.", body)
 
 
 if __name__ == "__main__":

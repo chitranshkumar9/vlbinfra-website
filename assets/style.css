@@ -320,3 +320,12 @@ section.block{padding-block:88px}
 /* Keep the Contact button visible in dark mode */
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .nav .cta{background:var(--gold);color:#14233f}}
 :root[data-theme="dark"] .nav .cta{background:var(--gold);color:#14233f}
+/* Five services: 3 on top, 2 below, filling the row */
+@media (min-width:901px){
+  .svc-mini{grid-template-columns:repeat(6,1fr)}
+  .svc-mini a{grid-column:span 2}
+  .svc-mini a:nth-child(n+4){grid-column:span 3}
+}
+@media (min-width:561px) and (max-width:900px){
+  .svc-mini a:last-child:nth-child(odd){grid-column:1/-1}
+}

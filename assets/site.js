@@ -50,7 +50,7 @@
       if (via === 'email') {
         location.href = 'mailto:info@vlbinfra.com?subject=' + encodeURIComponent('Enquiry from ' + name) + '&body=' + encodeURIComponent(text);
       } else {
-        window.open('https://wa.me/919837016102?text=' + encodeURIComponent(text), '_blank', 'noopener');
+        window.open('https://wa.me/918077676214?text=' + encodeURIComponent(text), '_blank', 'noopener');
       }
     });
   }
