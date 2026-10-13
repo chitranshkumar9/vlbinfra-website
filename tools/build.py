@@ -317,8 +317,10 @@ def home():
     {SKYLINE}
     <div class="wrap">
       <div>
-        <div class="hero-mark"><img src="assets/logo.png" alt="VLB — Vaibhav Laxmi Builders logo"></div>
-        <h1 class="hero-name">VLB<span>Vaibhav Laxmi Builders</span></h1>
+        <div class="hero-plate">
+          <img src="assets/logo.png" alt="VLB logo">
+          <h1>VLB<span>Vaibhav Laxmi Builders</span></h1>
+        </div>
         <p class="hero-tag">Government civil contractor · <em>Building public works for over 30 years</em></p>
         <p class="lede">Vaibhav Laxmi Builders executes roads, bridges, drainage and government buildings for departments of the Uttar Pradesh and Central Government, from our head office in Saharanpur.</p>
         <div class="actions">

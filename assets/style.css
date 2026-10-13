@@ -270,3 +270,14 @@ section.block{padding-block:88px}
 @media (max-width:900px){.enquiry{grid-template-columns:1fr;gap:28px;padding:28px 22px}}
 @media (max-width:560px){#enquiry-form{grid-template-columns:1fr}.hero-mark{width:92px;height:100px}}
 #enquiry{scroll-margin-top:90px}
+
+/* Home hero: white plate with logo + name */
+.hero-plate{display:inline-flex;align-items:center;gap:24px;background:#fff;border-radius:6px;padding:20px 32px 20px 20px;box-shadow:0 10px 30px rgba(0,0,0,.3);max-width:100%}
+.hero-plate img{width:96px;height:auto;flex:none}
+.hero .hero-plate h1{margin:0;color:#14233f;font-size:clamp(56px,7vw,92px);line-height:.9;letter-spacing:.03em;text-transform:uppercase}
+.hero .hero-plate h1 span{display:block;font-size:clamp(17px,2vw,24px);line-height:1.15;letter-spacing:.08em;color:#a87f2c;margin-top:8px;font-weight:600}
+.hero-plate + .hero-tag{margin-top:28px}
+@media (max-width:560px){
+  .hero-plate{gap:14px;padding:14px 18px 14px 14px}
+  .hero-plate img{width:64px}
+}
