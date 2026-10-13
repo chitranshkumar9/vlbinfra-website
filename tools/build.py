@@ -146,7 +146,8 @@ def page(filename, title, description, body):
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.vlbinfra.com/{'' if filename == 'index.html' else filename}">
 <meta property="og:image" content="https://www.vlbinfra.com/assets/logo.png">
-<link rel="icon" href="assets/logo.png">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -156,7 +157,7 @@ def page(filename, title, description, body):
 <header class="top">
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="Vaibhav Laxmi Builders home">
-      <span class="mark"><img src="assets/logo.png" alt="VLB logo"></span>
+      <span class="mark"><img src="assets/logo.svg" alt="VLB logo"></span>
       <span><b>Vaibhav Laxmi Builders</b><small>Govt. Civil Contractor · Saharanpur</small></span>
     </a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
@@ -178,7 +179,7 @@ def page(filename, title, description, body):
     <div class="cols">
       <div>
         <a class="brand" href="index.html">
-          <span class="mark"><img src="assets/logo.png" alt=""></span>
+          <span class="mark"><img src="assets/logo.svg" alt=""></span>
           <span><b>Vaibhav Laxmi Builders</b><small>VLB · Saharanpur, U.P.</small></span>
         </a>
         <p>Government civil contractor executing roads, bridges, drainage and government buildings across Uttar Pradesh.</p>
@@ -317,7 +318,7 @@ def home():
     {SKYLINE}
     <div class="wrap">
       <div>
-        <img class="hero-logo-img" src="assets/logo-light.png" alt="VLB – Vaibhav Laxmi Builders">
+        <img class="hero-logo-img" src="assets/logo-light.svg" alt="VLB – Vaibhav Laxmi Builders">
         <h1 class="sr-only">VLB – Vaibhav Laxmi Builders</h1>
         <p class="hero-tag">Government civil contractor · <em>Building public works for over 30 years</em></p>
         <p class="lede">Vaibhav Laxmi Builders executes roads, bridges, drainage and government buildings for departments of the Uttar Pradesh and Central Government, from our head office in Saharanpur.</p>
