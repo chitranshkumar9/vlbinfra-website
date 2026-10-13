@@ -20,4 +20,14 @@
       });
     });
   });
+  // Tap a multi-photo card to see the next photo
+  document.querySelectorAll('.ph-next').forEach(function (btn) {
+    var list = btn.getAttribute('data-photos').split('|');
+    var i = 0, img = btn.querySelector('img'), count = btn.querySelector('span');
+    btn.addEventListener('click', function () {
+      i = (i + 1) % list.length;
+      img.src = list[i];
+      count.textContent = (i + 1) + ' / ' + list.length;
+    });
+  });
 })();

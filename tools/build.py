@@ -65,6 +65,25 @@ SERVICES = [
 # Projects. Add one entry per project; photos go in images/projects/.
 # status: "done" or "ongoing".  category: one of the SERVICES names.
 PROJECTS = [
+    {
+        "name": "Bridge construction",
+        "category": "Bridges & Culverts",
+        "photos": ["images/projects/bridge-girders.jpg", "images/projects/bridge-girders-2.jpg"],
+        "featured": True,
+    },
+    {
+        "name": "Institutional building",
+        "category": "Government Buildings",
+        "photos": ["images/projects/institutional-building.jpg"],
+        "featured": True,
+    },
+    {
+        "name": "Road resurfacing",
+        "category": "Roads & Highways",
+        "photos": ["images/projects/road-resurfacing-night.jpg"],
+        "featured": True,
+    },
+    # Template:
     # {
     #     "name": "Construction of CC road, Ward 12",
     #     "category": "CC Roads & Paving",
@@ -243,18 +262,26 @@ def cta_band():
 
 
 def project_card(p):
-    status = '<span class="status done">Completed</span>' if p.get("status") == "done" else '<span class="status ongoing">Ongoing</span>'
+    status = {"done": '<span class="status done">Completed</span>',
+              "ongoing": '<span class="status ongoing">Ongoing</span>'}.get(p.get("status"), "")
     rows = [("Location", p.get("place")), ("Department", p.get("department")),
             ("Year", p.get("year")), ("Value", p.get("value"))]
     dl = "".join(f"<dt>{k}</dt><dd>{e(v)}</dd>" for k, v in rows if v)
-    photo = f'<img src="{e(p["photo"])}" alt="{e(p["name"])}" loading="lazy">' if p.get("photo") else ""
+    dl = f"<dl>{dl}</dl>" if dl else ""
+    photos = p.get("photos") or ([p["photo"]] if p.get("photo") else [])
+    photo = ""
+    if photos:
+        photo = f'<img src="{e(photos[0])}" alt="{e(p["name"])}" loading="lazy">'
+        if len(photos) > 1:
+            photo = (f'<button type="button" class="ph-next" data-photos="{e("|".join(photos))}" '
+                     f'aria-label="Next photo of {e(p["name"])}">{photo}<span>1 / {len(photos)}</span></button>')
     return f'''        <article class="proj" data-cat="{e(p.get("category", ""))}">
           <div class="ph">{photo}</div>
           <div class="body">
             <span class="cat">{e(p.get("category", ""))}</span>
             <h3>{e(p["name"])}</h3>
             {status}
-            <dl>{dl}</dl>
+            {dl}
           </div>
         </article>'''
 
