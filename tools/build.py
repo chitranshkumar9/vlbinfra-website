@@ -54,6 +54,12 @@ SERVICES = [
         "scope": ["Administrative offices", "Institutional buildings", "Staff quarters",
                   "RCC framed structures", "Boundary walls & gates", "Finishing & services"],
     },
+    {
+        "id": "drainage", "icon": "drain", "name": "Drainage Works",
+        "short": "Covered and open drains, nalas, storm-water and sewer line works.",
+        "scope": ["Covered & open drains", "Nala construction", "Storm-water drainage",
+                  "Sewer lines", "Desilting & repair", "Urban drainage"],
+    },
 ]
 
 # Projects. Add one entry per project; photos go in images/projects/.
