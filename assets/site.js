@@ -30,4 +30,28 @@
       count.textContent = (i + 1) + ' / ' + list.length;
     });
   });
+  // Enquiry form: compose the message and open WhatsApp or email
+  var form = document.getElementById('enquiry-form');
+  if (form) {
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var via = (ev.submitter && ev.submitter.getAttribute('data-via')) || 'whatsapp';
+      var v = function (id) { return document.getElementById(id).value.trim(); };
+      var name = v('enq-name'), org = v('enq-org'), phone = v('enq-phone'), email = v('enq-email'), msg = v('enq-msg');
+      var err = document.getElementById('enq-error');
+      if (!name || !phone || !msg) { err.hidden = false; return; }
+      err.hidden = true;
+      var lines = ['Enquiry from vlbinfra.com', '', 'Name: ' + name];
+      if (org) lines.push('Organisation: ' + org);
+      lines.push('Phone: ' + phone);
+      if (email) lines.push('Email: ' + email);
+      lines.push('', msg);
+      var text = lines.join('\n');
+      if (via === 'email') {
+        location.href = 'mailto:info@vlbinfra.com?subject=' + encodeURIComponent('Enquiry from ' + name) + '&body=' + encodeURIComponent(text);
+      } else {
+        window.open('https://wa.me/919837016102?text=' + encodeURIComponent(text), '_blank', 'noopener');
+      }
+    });
+  }
 })();

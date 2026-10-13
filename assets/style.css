@@ -243,3 +243,30 @@ section.block{padding-block:88px}
 .ph-next:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
 .ph-next img{width:100%;height:100%;object-fit:cover;display:block}
 .ph-next span{position:absolute;right:10px;bottom:10px;background:rgba(15,27,51,.78);color:#fff;font:500 12px/1 var(--f-mono);padding:6px 8px;border-radius:2px}
+
+/* Home hero: logo + name first */
+.hero-mark{width:112px;height:120px;background:#fff;border-radius:6px;padding:10px;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.hero-mark img{width:100%;height:100%;object-fit:contain}
+.hero h1.hero-name{font-size:clamp(64px,9vw,120px);line-height:.9;margin-top:26px;letter-spacing:.02em}
+.hero h1.hero-name span{display:block;font-size:clamp(26px,3.4vw,42px);line-height:1.1;letter-spacing:.06em;color:var(--gold);margin-top:10px;font-weight:600}
+.hero-tag{font:500 13px/1.6 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-muted);margin:22px 0 0}
+.hero-tag em{font-style:normal;color:var(--on-navy)}
+.hero .hero-tag + .lede{margin-top:16px}
+
+/* Enquiry form */
+.enquiry{display:grid;grid-template-columns:1fr 1.6fr;gap:48px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);padding:40px}
+.enquiry h2{font-size:clamp(32px,3.8vw,44px);text-transform:uppercase;margin-top:12px}
+.enquiry > div p{color:var(--muted);margin:14px 0 0;max-width:24em}
+#enquiry-form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;min-width:0}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.full{grid-column:1/-1}
+.field label{font-weight:600;font-size:15px}
+.field small{font-weight:400;color:var(--muted)}
+.field input,.field textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:11px 12px;width:100%}
+.field input:focus,.field textarea:focus{outline:2px solid var(--gold);outline-offset:0;border-color:transparent}
+.field textarea{resize:vertical}
+.form-error{color:#c0392b;margin:0;font-weight:500}
+#enquiry-form .btn{border:0;cursor:pointer;font-family:inherit}
+@media (max-width:900px){.enquiry{grid-template-columns:1fr;gap:28px;padding:28px 22px}}
+@media (max-width:560px){#enquiry-form{grid-template-columns:1fr}.hero-mark{width:92px;height:100px}}
+#enquiry{scroll-margin-top:90px}

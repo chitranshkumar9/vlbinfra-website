@@ -317,12 +317,13 @@ def home():
     {SKYLINE}
     <div class="wrap">
       <div>
-        <span class="eyebrow">Government Civil Contractor · Uttar Pradesh</span>
-        <h1>Building public works <em>for over 30 years</em></h1>
+        <div class="hero-mark"><img src="assets/logo.png" alt="VLB — Vaibhav Laxmi Builders logo"></div>
+        <h1 class="hero-name">VLB<span>Vaibhav Laxmi Builders</span></h1>
+        <p class="hero-tag">Government civil contractor · <em>Building public works for over 30 years</em></p>
         <p class="lede">Vaibhav Laxmi Builders executes roads, bridges, drainage and government buildings for departments of the Uttar Pradesh and Central Government, from our head office in Saharanpur.</p>
         <div class="actions">
-          <a class="btn btn-gold" href="tel:{PHONE_TEL}">{PHONE_SVG}{PHONE_DISPLAY}</a>
-          <a class="btn btn-ghost" href="about.html">About VLB</a>
+          <a class="btn btn-gold" href="about.html">About VLB</a>
+          <a class="btn btn-ghost" href="contact.html#enquiry">Send an enquiry</a>
         </div>
       </div>
 {particulars()}
@@ -492,6 +493,30 @@ def contact():
           <span class="v">{EMAIL}</span>
           <a class="go" href="mailto:{EMAIL}">Write to us →</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="enquiry" style="padding-top:0">
+    <div class="wrap">
+      <div class="enquiry">
+        <div>
+          <span class="eyebrow">Enquiry</span>
+          <h2>Send an enquiry</h2>
+          <p>Fill in your details and send them to us on WhatsApp or by email. We usually reply within one working day.</p>
+        </div>
+        <form id="enquiry-form" novalidate>
+          <div class="field"><label for="enq-name">Your name</label><input id="enq-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="enq-org">Organisation / department <small>(optional)</small></label><input id="enq-org" name="org" autocomplete="organization"></div>
+          <div class="field"><label for="enq-phone">Phone</label><input id="enq-phone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="enq-email">Email <small>(optional)</small></label><input id="enq-email" name="email" type="email" autocomplete="email"></div>
+          <div class="field full"><label for="enq-msg">Your enquiry</label><textarea id="enq-msg" name="message" rows="5" required></textarea></div>
+          <p class="form-error full" id="enq-error" role="alert" hidden>Please fill in your name, phone and enquiry.</p>
+          <div class="actions full">
+            <button class="btn btn-gold" type="submit" data-via="whatsapp">Send on WhatsApp</button>
+            <button class="btn btn-navy" type="submit" data-via="email">Send by email</button>
+          </div>
+        </form>
       </div>
     </div>
   </section>'''
