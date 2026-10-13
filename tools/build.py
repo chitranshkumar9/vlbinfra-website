@@ -115,8 +115,10 @@ SKYLINE = '''<svg class="skyline" viewBox="0 0 600 420" fill="none" stroke="#c49
       <path d="M220 100h40M220 150h40M220 200h40M220 250h40M220 300h40M370 170h50M370 220h50M370 270h50M370 320h50M150 190h30M150 240h30M150 290h30"/>
     </svg>'''
 
-NAV = [("index.html", "Home"), ("about.html", "About"), ("services.html", "Services"),
-       ("projects.html", "Projects")]
+NAV = [("index.html", "Home"), ("about.html", "About"), ("services.html", "Services")]
+SHOW_PROJECTS = False   # set True to bring back the Projects page and the home "Recent works" section
+if SHOW_PROJECTS:
+    NAV.append(("projects.html", "Projects"))
 
 e = html.escape
 
@@ -298,6 +300,18 @@ def empty_projects():
 def home():
     featured = [p for p in PROJECTS if p.get("featured")][:3] or PROJECTS[:3]
     proj = (f'<div class="proj-grid">\n' + "\n".join(project_card(p) for p in featured) + "\n      </div>") if featured else empty_projects()
+    proj_section = (f'''  <section class="block">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Projects</span><h2>Recent works</h2></div>
+        <p>A selection of government works executed by VLB.</p>
+      </div>
+      {proj}
+      <a class="more" href="projects.html">All projects →</a>
+    </div>
+  </section>
+
+''') if SHOW_PROJECTS else ""
     svc = "\n".join(f'        <a href="services.html#{s["id"]}">{icon(s["icon"])}{e(s["name"])}</a>' for s in SERVICES)
     body = f'''  <section class="hero">
     {SKYLINE}
@@ -308,7 +322,7 @@ def home():
         <p class="lede">Vaibhav Laxmi Builders executes roads, bridges, drainage and government buildings for departments of the Uttar Pradesh and Central Government, from our head office in Saharanpur.</p>
         <div class="actions">
           <a class="btn btn-gold" href="tel:{PHONE_TEL}">{PHONE_SVG}{PHONE_DISPLAY}</a>
-          <a class="btn btn-ghost" href="projects.html">View our projects</a>
+          <a class="btn btn-ghost" href="about.html">About VLB</a>
         </div>
       </div>
 {particulars()}
@@ -354,18 +368,7 @@ def home():
 
 {dept_band()}
 
-  <section class="block">
-    <div class="wrap">
-      <div class="head">
-        <div><span class="eyebrow">Projects</span><h2>Recent works</h2></div>
-        <p>A selection of government works executed by VLB.</p>
-      </div>
-      {proj}
-      <a class="more" href="projects.html">All projects →</a>
-    </div>
-  </section>
-
-{cta_band()}'''
+{proj_section}{cta_band()}'''
     return page("index.html", "Home",
                 "Vaibhav Laxmi Builders (VLB), Saharanpur: government civil contractor with 30+ years of experience in roads, bridges, drainage and government buildings across Uttar Pradesh.",
                 body)
@@ -496,7 +499,11 @@ def contact():
 
 
 if __name__ == "__main__":
-    for name, fn in [("index.html", home), ("about.html", about), ("services.html", services),
-                     ("projects.html", projects), ("contact.html", contact)]:
+    pages = [("index.html", home), ("about.html", about), ("services.html", services), ("contact.html", contact)]
+    if SHOW_PROJECTS:
+        pages.append(("projects.html", projects))
+    else:
+        (ROOT / "projects.html").unlink(missing_ok=True)
+    for name, fn in pages:
         (ROOT / name).write_text(fn(), encoding="utf-8")
         print("built", name)
