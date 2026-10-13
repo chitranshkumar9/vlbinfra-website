@@ -313,19 +313,20 @@ def home():
 
 ''') if SHOW_PROJECTS else ""
     svc = "\n".join(f'        <a href="services.html#{s["id"]}">{icon(s["icon"])}{e(s["name"])}</a>' for s in SERVICES)
-    body = f'''  <section class="hero hero-center">
+    body = f'''  <section class="hero hero-logo">
     {SKYLINE}
     <div class="wrap">
-      <div class="hero-brand">
-        <img src="assets/logo-light.png" alt="VLB logo">
-        <h1>VLB <span class="dash">–</span> Vaibhav Laxmi Builders</h1>
+      <div>
+        <img class="hero-logo-img" src="assets/logo-light.png" alt="VLB – Vaibhav Laxmi Builders">
+        <h1 class="sr-only">VLB – Vaibhav Laxmi Builders</h1>
+        <p class="hero-tag">Government civil contractor · <em>Building public works for over 30 years</em></p>
+        <p class="lede">Vaibhav Laxmi Builders executes roads, bridges, drainage and government buildings for departments of the Uttar Pradesh and Central Government, from our head office in Saharanpur.</p>
+        <div class="actions">
+          <a class="btn btn-gold" href="about.html">About VLB</a>
+          <a class="btn btn-ghost" href="contact.html#enquiry">Send an enquiry</a>
+        </div>
       </div>
-      <p class="hero-tag">Government civil contractor · <em>Building public works for over 30 years</em></p>
-      <p class="lede">Vaibhav Laxmi Builders executes roads, bridges, drainage and government buildings for departments of the Uttar Pradesh and Central Government, from our head office in Saharanpur.</p>
-      <div class="actions">
-        <a class="btn btn-gold" href="about.html">About VLB</a>
-        <a class="btn btn-ghost" href="contact.html#enquiry">Send an enquiry</a>
-      </div>
+{particulars()}
     </div>
   </section>
 
