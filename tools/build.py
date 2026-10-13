@@ -3,6 +3,7 @@
 Run from the repository root:  python3 tools/build.py
 Edit the CONTENT section, re-run, and commit the generated .html files.
 """
+import hashlib
 import html
 from pathlib import Path
 
@@ -125,6 +126,11 @@ if SHOW_PROJECTS:
 e = html.escape
 
 
+def asset_version(rel):
+    """Short content hash so browsers fetch a fresh copy whenever the file changes."""
+    return hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
+
+
 def icon(name, size=40):
     return f'<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">{ICONS[name]}</svg>'
 
@@ -155,7 +161,7 @@ def page(filename, title, description, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v={asset_version('assets/style.css')}">
 </head>
 <body>
 <header class="top">
@@ -211,7 +217,7 @@ def page(filename, title, description, body):
 </footer>
 
 <a class="wa" href="https://wa.me/{WHATSAPP}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">{WA_SVG}</a>
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v={asset_version('assets/site.js')}"></script>
 </body>
 </html>
 '''
