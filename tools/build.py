@@ -503,7 +503,12 @@ if __name__ == "__main__":
     if SHOW_PROJECTS:
         pages.append(("projects.html", projects))
     else:
-        (ROOT / "projects.html").unlink(missing_ok=True)
+        (ROOT / "projects.html").write_text(
+            '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+            '<meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=index.html">'
+            '<link rel="canonical" href="https://www.vlbinfra.com/"><title>Vaibhav Laxmi Builders</title></head>'
+            '<body><p><a href="index.html">Go to the Vaibhav Laxmi Builders home page</a></p></body></html>\n',
+            encoding="utf-8")
     for name, fn in pages:
         (ROOT / name).write_text(fn(), encoding="utf-8")
         print("built", name)
