@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="logo.png">
+<title>Vaibhav Laxmi Builders</title>
+<meta name="description" content="Vaibhav Laxmi Builders (VLB), Saharanpur — government civil contractor with 30+ years of experience in roads, bridges, drainage and government buildings across Uttar Pradesh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: navy "contractor particulars" hero, then a calm grey document body with ruled sections, like a tender file. */
+:root{
+  --navy:#14233f; --navy-2:#1e3358; --gold:#c49a3e; --gold-soft:#e7d3a3;
+  --paper:#f4f5f8; --surface:#ffffff; --ink:#131b2c; --muted:#56607a; --line:#d8dce5;
+  --on-navy:#eef1f7; --on-navy-muted:#a9b4ca;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Barlow","Segoe UI",Roboto,Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1160px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0c1322; --surface:#121c31; --ink:#e7ebf3; --muted:#9ba6bc; --line:#24314d;
+  --navy:#0f1b33; --navy-2:#1a2b4b; --gold:#d4ad58; --gold-soft:#5a4a26; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0c1322; --surface:#121c31; --ink:#e7ebf3; --muted:#9ba6bc; --line:#24314d;
+  --navy:#0f1b33; --navy-2:#1a2b4b; --gold:#d4ad58; --gold-soft:#5a4a26; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--f-body)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:.005em}
+.eyebrow{font:500 13px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--surface);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .mark{width:44px;height:48px;display:grid;place-items:center;background:#fff;border-radius:4px;padding:3px}
+.brand img{width:100%;height:100%;object-fit:contain}
+.brand b{display:block;font:700 22px/1 var(--f-display);letter-spacing:.04em;text-transform:uppercase}
+.brand small{display:block;font:500 11px/1.3 var(--f-mono);letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+.nav{display:flex;align-items:center;gap:26px;font-weight:500;font-size:15px}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.nav .cta{color:#fff;background:var(--navy);padding:9px 16px;border-radius:3px}
+.nav .cta:hover{color:#fff;background:var(--navy-2)}
+@media (max-width:760px){.nav a:not(.cta){display:none}}
+
+/* Hero */
+.hero{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:center;padding-block:84px 92px;position:relative}
+.hero h1{font-size:clamp(44px,6.4vw,82px);text-transform:uppercase;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.lede{font-size:19px;color:var(--on-navy-muted);max-width:34em;margin:22px 0 32px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:3px;font-weight:600;text-decoration:none;font-size:16px}
+.btn-gold{background:var(--gold);color:#14233f}
+.btn-gold:hover{filter:brightness(1.07)}
+.btn-ghost{border:1px solid rgba(255,255,255,.28);color:var(--on-navy)}
+.btn-ghost:hover{border-color:var(--gold)}
+.btn svg{width:18px;height:18px;flex:none}
+.skyline{position:absolute;right:-40px;bottom:0;width:min(620px,60%);height:auto;opacity:.16;pointer-events:none}
+
+/* Particulars card */
+.sheet{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-top:3px solid var(--gold);padding:26px 26px 22px;backdrop-filter:blur(2px)}
+.sheet h2{font:500 12px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--on-navy-muted);margin-bottom:16px}
+.sheet dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:0}
+.sheet dt,.sheet dd{padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.16);margin:0}
+.sheet dt{font:400 13px/1.4 var(--f-mono);color:var(--on-navy-muted);padding-right:18px;text-transform:uppercase;letter-spacing:.06em}
+.sheet dd{font-weight:600;text-align:right}
+.sheet dl > :nth-last-child(-n+2){border-bottom:0}
+
+/* Strip */
+.strip{background:var(--surface);border-bottom:1px solid var(--line)}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:28px 24px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font:700 44px/1 var(--f-display);color:var(--ink)}
+.stat span{display:block;color:var(--muted);font-size:15px;margin-top:6px}
+
+/* Sections */
+section.block{padding-block:88px}
+.head{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:end;margin-bottom:44px}
+.head h2{font-size:clamp(34px,4.4vw,52px);text-transform:uppercase;margin-top:12px}
+.head p{color:var(--muted);margin:0;max-width:38em}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.about-grid p{margin:0 0 16px;max-width:36em}
+.about-grid .big{font:600 26px/1.3 var(--f-display);letter-spacing:.01em;color:var(--ink)}
+.checks{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.checks li:last-child{border-bottom:0}
+.checks svg{width:20px;height:20px;color:var(--gold);margin-top:3px}
+
+.services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.svc{padding:30px 28px 32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);min-width:0}
+.svc svg{width:38px;height:38px;color:var(--gold);margin-bottom:18px}
+.svc h3{font-size:25px;text-transform:uppercase;margin-bottom:8px}
+.svc p{margin:0;color:var(--muted);font-size:16px}
+
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.steps li{padding:0 24px 0 0;position:relative;counter-increment:s}
+.steps li::before{content:"0" counter(s);display:block;font:500 13px/1 var(--f-mono);color:var(--gold);letter-spacing:.1em;padding-bottom:14px;margin-bottom:18px;border-bottom:2px solid var(--line)}
+.steps h3{font-size:24px;text-transform:uppercase;margin-bottom:8px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+
+.dept{background:var(--navy);color:var(--on-navy)}
+.dept .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center;padding-block:72px}
+.dept h2{font-size:clamp(32px,4vw,46px);text-transform:uppercase;margin-top:12px}
+.dept p{color:var(--on-navy-muted);margin:0;max-width:36em}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tags span{border:1px solid rgba(255,255,255,.22);padding:8px 14px;font-weight:500;font-size:15px;border-radius:2px}
+
+.work{display:grid;grid-template-columns:1.3fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line)}
+.work .art{background:var(--navy);min-height:300px;position:relative;overflow:hidden}
+.work .art svg{position:absolute;inset:auto 0 0 0;width:100%;height:auto;opacity:.5}
+.work .art .lbl{position:absolute;left:24px;top:22px;font:500 12px/1 var(--f-mono);letter-spacing:.14em;color:var(--gold-soft);text-transform:uppercase}
+.work .txt{padding:40px 36px;min-width:0}
+.work .txt h3{font-size:30px;text-transform:uppercase;margin-bottom:12px}
+.work .txt p{color:var(--muted);margin:0 0 22px}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-2)}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);padding:28px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.card .k{font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.card .v{font:600 22px/1.3 var(--f-display);letter-spacing:.01em;overflow-wrap:anywhere}
+.card a.go{margin-top:auto;padding-top:10px;color:var(--gold);font-weight:600;text-decoration:none}
+.card a.go:hover{text-decoration:underline}
+
+footer{border-top:1px solid var(--line);background:var(--surface)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px;color:var(--muted);font-size:14px}
+
+/* Floating WhatsApp */
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.22);z-index:20}
+.wa svg{width:28px;height:28px;fill:#fff}
+
+@media (max-width:900px){
+  .hero .wrap,.head,.about-grid,.dept .wrap,.work{grid-template-columns:1fr}
+  .hero .wrap{gap:40px;padding-block:56px 64px}
+  .head{gap:14px}
+  .services{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr;row-gap:34px}
+  .contact{grid-template-columns:1fr}
+  section.block{padding-block:64px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .services,.steps{grid-template-columns:1fr}
+  .strip .wrap{grid-template-columns:1fr}
+  .stat{border-left:0;padding:20px 0;border-top:1px solid var(--line)}
+  .stat:first-child{border-top:0}
+  .brand small{display:none}
+  .sheet dd{text-align:left}
+  .sheet dl{grid-template-columns:1fr}
+  .sheet dt{border-bottom:0;padding-bottom:0}
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="Vaibhav Laxmi Builders home">
+      <span class="mark"><img src="logo.png" alt="VLB logo"></span>
+      <span><b>Vaibhav Laxmi Builders</b><small>Govt. Civil Contractor · Saharanpur</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#approach">How we work</a>
+      <a href="#projects">Projects</a>
+      <a class="cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <svg class="skyline" viewBox="0 0 600 420" fill="none" stroke="#c49a3e" stroke-width="3" aria-hidden="true">
+      <path d="M40 420V250h90v170M130 420V150l70-40v310M200 420V60h80v360M280 420V180h70v240M350 420V120l90 40v260M440 420V230h110v190"/>
+      <path d="M220 100h40M220 150h40M220 200h40M220 250h40M220 300h40M370 170h50M370 220h50M370 270h50M370 320h50M150 190h30M150 240h30M150 290h30"/>
+    </svg>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Government Civil Contractor · Uttar Pradesh</span>
+        <h1>Building public works <em>for over 30 years</em></h1>
+        <p class="lede">Vaibhav Laxmi Builders executes roads, bridges, drainage and government buildings for departments of the Uttar Pradesh and Central Government, from our head office in Saharanpur.</p>
+        <div class="actions">
+          <a class="btn btn-gold" href="tel:+919837016102"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+91 98370 16102</a>
+          <a class="btn btn-ghost" href="mailto:info@vlbinfra.com">info@vlbinfra.com</a>
+        </div>
+      </div>
+      <aside class="sheet" aria-label="Contractor particulars">
+        <h2>Contractor particulars</h2>
+        <dl>
+          <dt>Firm</dt><dd>Vaibhav Laxmi Builders</dd>
+          <dt>Category</dt><dd>Government civil contractor</dd>
+          <dt>Registration</dt><dd>Top class</dd>
+          <dt>Experience</dt><dd>30+ years</dd>
+          <dt>Works for</dt><dd>UP State &amp; Central Govt.</dd>
+          <dt>Head office</dt><dd>Saharanpur, U.P.</dd>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <div class="stat"><b>30+</b><span>Years of executing government works</span></div>
+      <div class="stat"><b>Top class</b><span>Government contractor registration</span></div>
+      <div class="stat"><b>State &amp; Central</b><span>Departments served across Uttar Pradesh</span></div>
+    </div>
+  </div>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">About VLB</span><h2>A family firm, three decades on site</h2></div>
+        <p>Founded and led by the same family for over thirty years, VLB has grown from a Saharanpur contracting firm into a top-class registered government contractor trusted with large public works.</p>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p class="big">We build the roads people drive on, the drains that keep towns dry, and the buildings where government serves the public.</p>
+          <p>Every project is run to the department's drawings, specifications and timelines, with our own site teams, supervisors and machinery.</p>
+        </div>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Specification-first execution.</b> Work done to department drawings, schedules and quality norms.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Local roots.</b> Based in Saharanpur, with deep knowledge of working conditions across Western Uttar Pradesh.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Own teams on site.</b> Experienced engineers, supervisors and labour managed directly by VLB.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg><span><b>Timely handover.</b> Planned mobilisation and daily progress tracking until completion.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="services" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Services</span><h2>What we build</h2></div>
+        <p>Civil works for government departments, from rural link roads to multi-storey public buildings.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4L6 36M26 4l8 32M20 6v5M20 17v6M20 29v5"/></svg>
+          <h3>Roads &amp; Highways</h3>
+          <p>Bituminous roads, widening and strengthening, link roads and highway works.</p>
+        </article>
+        <article class="svc">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 34h32M6 34V14l14-8 14 8v20M12 34V20M20 34V20M28 34V20M6 14h28"/></svg>
+          <h3>Government Buildings</h3>
+          <p>Offices, schools, hospitals, residential quarters and institutional buildings.</p>
+        </article>
+        <article class="svc">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 16h36M4 16v14M36 16v14M8 30c0-8 5-12 12-12s12 4 12 12M2 30h36"/></svg>
+          <h3>Bridges &amp; Culverts</h3>
+          <p>Minor bridges, box and pipe culverts, causeways and cross-drainage structures.</p>
+        </article>
+        <article class="svc">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8v16a14 14 0 0 0 28 0V8M6 8h6M28 8h6M12 8v16a8 8 0 0 0 16 0V8M14 30c2 1 4 1.5 6 1.5"/></svg>
+          <h3>Drainage Works</h3>
+          <p>Covered and open drains, nalas, storm-water and sewer line works in towns and cities.</p>
+        </article>
+        <article class="svc">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h32v28H4zM4 15h32M4 25h32M15 6v9M25 15v10M15 25v9"/></svg>
+          <h3>CC Roads &amp; Paving</h3>
+          <p>Cement concrete roads, interlocking tile paving and internal streets.</p>
+        </article>
+        <article class="svc">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 36V12l8-4v28M16 36V4h10v32M26 36V14h8v22M4 36h32M19 10h4M19 16h4M19 22h4M19 28h4"/></svg>
+          <h3>Commercial &amp; High-Rise</h3>
+          <p>Multi-storey commercial and public buildings, from foundation to finishing.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="wrap">
+      <div><span class="eyebrow">Who we build for</span><h2>Trusted by government departments</h2></div>
+      <div>
+        <p style="margin-bottom:22px">VLB has executed works for leading departments of the Government of Uttar Pradesh and the Central Government.</p>
+        <div class="tags"><span>Uttar Pradesh Government</span><span>Central Government</span><span>Public works</span><span>Urban bodies</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="approach">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">How we work</span><h2>From tender to handover</h2></div>
+        <p>The same disciplined sequence on every government work we take up.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Tender &amp; award</h3><p>Careful study of the scope, drawings and BOQ before every bid.</p></li>
+        <li><h3>Mobilisation</h3><p>Site setup, material sourcing, machinery and teams deployed quickly after award.</p></li>
+        <li><h3>Execution &amp; QC</h3><p>Work to specification, with regular quality checks and progress reporting.</p></li>
+        <li><h3>Measurement &amp; handover</h3><p>Joint measurements, documentation and handover to the department.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="projects" style="padding-top:0">
+    <div class="wrap">
+      <div class="work">
+        <div class="art" aria-hidden="true">
+          <span class="lbl">Project portfolio</span>
+          <svg viewBox="0 0 600 260" fill="none" stroke="#c49a3e" stroke-width="2.5">
+            <path d="M0 260V200h70V120h50v140M120 260V80h60v180M180 260V140l60-30v150M240 260V60h70v200M310 260V150h60v110M370 260V100l80 30v130M450 260V170h70v90M520 260V120h80v140"/>
+            <path d="M0 230h600" stroke-dasharray="10 8"/>
+          </svg>
+        </div>
+        <div class="txt">
+          <span class="eyebrow">Our work</span>
+          <h3 style="margin-top:12px">Completed &amp; ongoing projects</h3>
+          <p>Photographs and details of our completed government works are being added to this page. For our full list of completed and ongoing works, contact our office.</p>
+          <a class="btn btn-navy" href="#contact">Request project list</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Contact</span><h2>Get in touch</h2></div>
+        <p>For tenders, enquiries, vendor and subcontracting partnerships, call or write to our head office.</p>
+      </div>
+      <div class="contact">
+        <div class="card">
+          <span class="k">Head office</span>
+          <span class="v">3/2561, Dehradun Road, Janak Nagar, Saharanpur, Uttar Pradesh 247001</span>
+          <a class="go" href="https://www.google.com/maps/search/?api=1&amp;query=3%2F2561+Dehradun+Road+Janak+Nagar+Saharanpur+247001" target="_blank" rel="noopener">Open in Google Maps →</a>
+        </div>
+        <div class="card">
+          <span class="k">Phone &amp; WhatsApp</span>
+          <span class="v">+91 98370 16102</span>
+          <a class="go" href="https://wa.me/919837016102" target="_blank" rel="noopener">Message on WhatsApp →</a>
+        </div>
+        <div class="card">
+          <span class="k">Email</span>
+          <span class="v">info@vlbinfra.com</span>
+          <a class="go" href="mailto:info@vlbinfra.com">Write to us →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Vaibhav Laxmi Builders (VLB). All rights reserved.</span>
+    <span>vlbinfra.com · Saharanpur, Uttar Pradesh</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/919837016102" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.5-.3z"/></svg></a>
+
+</body>
+</html>
