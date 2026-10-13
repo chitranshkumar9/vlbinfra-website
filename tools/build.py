@@ -231,7 +231,6 @@ def particulars():
           <dt>Firm</dt><dd>Vaibhav Laxmi Builders</dd>
           <dt>Category</dt><dd>Government civil contractor</dd>
           <dt>Registration</dt><dd>{e(REGISTRATION)}</dd>
-          <dt>Experience</dt><dd>{YEARS} years</dd>
           <dt>Works for</dt><dd>UP State &amp; Central Govt.</dd>
           <dt>Head office</dt><dd>Saharanpur, U.P.</dd>
         </dl>
@@ -320,7 +319,7 @@ def home():
       <div>
         <img class="hero-logo-img" src="assets/logo-light.svg" alt="VLB – Vaibhav Laxmi Builders">
         <h1 class="sr-only">VLB – Vaibhav Laxmi Builders</h1>
-        <p class="hero-tag">Government civil contractor · <em>Building public works for over 30 years</em></p>
+        <p class="hero-tag">Government civil contractor · <em>Roads · Bridges · Buildings · Drainage</em></p>
         <p class="lede">Vaibhav Laxmi Builders executes roads, bridges, drainage and government buildings for departments of the Uttar Pradesh and Central Government, from our head office in Saharanpur.</p>
         <div class="actions">
           <a class="btn btn-gold" href="about.html">About VLB</a>
@@ -333,7 +332,7 @@ def home():
 
   <div class="strip">
     <div class="wrap">
-      <div class="stat"><b>{YEARS}</b><span>Years of executing government works</span></div>
+      <div class="stat"><b>Family-run</b><span>Led by the founding family</span></div>
       <div class="stat"><b>{e(REGISTRATION)}</b><span>Government contractor registration</span></div>
       <div class="stat"><b>State &amp; Central</b><span>Departments served across Uttar Pradesh</span></div>
     </div>
@@ -347,7 +346,7 @@ def home():
           <p class="big" style="margin-top:16px">We build the roads people drive on, the drains that keep towns dry, and the buildings where government serves the public.</p>
         </div>
         <div>
-          <p>Founded and led by the same family for over thirty years, VLB has grown from a Saharanpur contracting firm into a top-class registered government contractor trusted with large public works.</p>
+          <p>Founded and led by the same family, VLB has grown from a Saharanpur contracting firm into a top-class registered government contractor trusted with large public works.</p>
           <p>Every project is run to the department's drawings, specifications and timelines, with our own site teams, supervisors and machinery.</p>
           <a class="more" href="about.html">More about VLB →</a>
         </div>
@@ -372,12 +371,12 @@ def home():
 
 {proj_section}{cta_band()}'''
     return page("index.html", "Home",
-                "Vaibhav Laxmi Builders (VLB), Saharanpur: government civil contractor with 30+ years of experience in roads, bridges, drainage and government buildings across Uttar Pradesh.",
+                "Vaibhav Laxmi Builders (VLB), Saharanpur: government civil contractor for roads, bridges, drainage and government buildings across Uttar Pradesh.",
                 body)
 
 
 def about():
-    body = f'''{page_hero("About", "About VLB", "A family-run government civil contractor from Saharanpur, executing public works across Uttar Pradesh for over 30 years.")}
+    body = f'''{page_hero("About", "About VLB", "A family-run government civil contractor from Saharanpur, executing public works across Uttar Pradesh.")}
 
   <section class="block">
     <div class="wrap">
@@ -387,7 +386,7 @@ def about():
           <p class="big" style="margin-top:16px">Three decades of building the public infrastructure of Western Uttar Pradesh.</p>
         </div>
         <div>
-          <p>Vaibhav Laxmi Builders was founded in Saharanpur and has been led by the same family for over thirty years. What began as a local contracting firm is today a top-class registered government contractor, trusted by departments of the Uttar Pradesh and Central Government with roads, bridges, drainage and public buildings.</p>
+          <p>Vaibhav Laxmi Builders was founded in Saharanpur and is run by its founding family. What began as a local contracting firm is today a top-class registered government contractor, trusted by departments of the Uttar Pradesh and Central Government with roads, bridges, drainage and public buildings.</p>
           <p>We work to the department's drawings, specifications and timelines, with our own engineers, supervisors, labour and machinery on every site.</p>
         </div>
       </div>
@@ -427,7 +426,7 @@ def about():
 {dept_band()}
 
 {cta_band()}'''
-    return page("about.html", "About", "About Vaibhav Laxmi Builders (VLB): a family-run government civil contractor in Saharanpur with over 30 years of public works experience.", body)
+    return page("about.html", "About", "About Vaibhav Laxmi Builders (VLB): a family-run government civil contractor in Saharanpur executing public works.", body)
 
 
 def services():
