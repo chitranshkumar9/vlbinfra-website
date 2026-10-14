@@ -455,8 +455,8 @@ def about():
       <div class="leader">
         <span class="eyebrow">Leadership</span>
         <h2>Reena Indauria</h2>
-        <span class="leader-role">Founder &amp; Proprietor</span>
-        <p>Reena Indauria founded Vaibhav Laxmi Builders and built it from the ground up. As proprietor, she sets the direction of the company: the works VLB takes on, the standards it holds on every site, and the long-standing relationships it has built with government departments.</p>
+        <span class="leader-role">Founder</span>
+        <p>Reena Indauria founded Vaibhav Laxmi Builders and built it from the ground up. As founder, she sets the direction of the company: the works VLB takes on, the standards it holds on every site, and the long-standing relationships it has built with government departments.</p>
         <p>Her focus on quality, on-time delivery and trust is what took VLB from a regional contractor to a Class 1 firm working across Delhi NCR.</p>
       </div>
     </div>
