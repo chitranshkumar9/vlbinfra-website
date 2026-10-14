@@ -63,6 +63,20 @@ SERVICES = [
     },
 ]
 
+# Machinery & resources (types only, no counts)
+MACHINERY = [
+    ("Earthwork & road machinery", "road",
+     ["JCB / backhoe loaders", "Excavators", "Motor graders", "Vibratory & tandem road rollers",
+      "Hot mix plant", "Paver finishers", "Water tankers"]),
+    ("Concrete & building", "tower",
+     ["Concrete mixers", "Transit mixers", "Batching plant", "Needle & plate vibrators",
+      "Steel shuttering & scaffolding"]),
+    ("Transport & lifting", "truck",
+     ["Tipper & dumper trucks", "Tractor-trolleys", "Hydra cranes"]),
+    ("Survey & testing", "survey",
+     ["Total stations", "Auto levels", "Site laboratory: cube, slump and sieve tests"]),
+]
+
 # Careers: roles VLB hires for. Set "open": True for a role with a current vacancy.
 CAREER_ROLES = [
     {"title": "Site Engineer (Civil)", "type": "Full time", "location": "Delhi NCR sites",
@@ -124,6 +138,8 @@ ICONS = {
     "school": '<path d="M4 34h32M7 34V18h26v16M4 18l16-10 16 10M17 34v-8h6v8M11 22h3M26 22h3M20 13v.5"/>',
     "drain": '<path d="M6 8v16a14 14 0 0 0 28 0V8M6 8h6M28 8h6M12 8v16a8 8 0 0 0 16 0V8M14 30c2 1 4 1.5 6 1.5"/>',
     "paving": '<path d="M4 6h32v28H4zM4 15h32M4 25h32M15 6v9M25 15v10M15 25v9"/>',
+    "truck": '<path d="M2 26V12h20v14M22 16h8l6 6v4H22M2 26h34M9 30a3 3 0 1 0 0 .1M29 30a3 3 0 1 0 0 .1"/>',
+    "survey": '<path d="M20 6v8M14 14h12l-2 6h-8zM20 20v14M12 34l8-14 8 14"/>',
     "tower": '<path d="M8 36V12l8-4v28M16 36V4h10v32M26 36V14h8v22M4 36h32M19 10h4M19 16h4M19 22h4M19 28h4"/>',
 }
 CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg>'
@@ -138,6 +154,7 @@ NAV = [("index.html", "Home"), ("about.html", "About"), ("services.html", "Servi
 SHOW_PROJECTS = False   # set True to bring back the Projects page and the home "Recent works" section
 if SHOW_PROJECTS:
     NAV.append(("projects.html", "Projects"))
+NAV.append(("machinery.html", "Machinery"))
 NAV.append(("careers.html", "Careers"))
 
 e = html.escape
@@ -505,6 +522,44 @@ def projects():
     return page("projects.html", "Projects", "Completed and ongoing government projects by Vaibhav Laxmi Builders (VLB) across Delhi NCR.", body)
 
 
+def machinery():
+    blocks = "\n".join(f"""        <article class="mach">
+          <div class="mach-head">{icon(ic)}<h2>{e(title)}</h2></div>
+          <ul class="scope">{"".join(f"<li>{e(x)}</li>" for x in items)}</ul>
+        </article>""" for title, ic, items in MACHINERY)
+    body = f"""{page_hero("Machinery", "Machinery &amp; resources", "Our own fleet, site teams and testing set-up, so works move on schedule without depending on hired equipment.")}
+
+  <section class="block">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Our fleet</span><h2>Owned and run by VLB</h2></div>
+        <p>VLB executes works with its own machinery and operators, from earthwork and road laying to concrete, lifting and survey.</p>
+      </div>
+      <div class="mach-grid">
+{blocks}
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">People</span><h2>Teams on every site</h2></div>
+        <p>Machinery is only as good as the people running it.</p>
+      </div>
+      <ul class="checks" style="max-width:820px">
+        <li>{CHECK}<span><b>Site engineers.</b> Responsible for execution, quality checks and measurements on each work.</span></li>
+        <li>{CHECK}<span><b>Supervisors.</b> Manage labour, materials and daily progress on site.</span></li>
+        <li>{CHECK}<span><b>Trained operators.</b> Our own operators for rollers, pavers, excavators and plants.</span></li>
+        <li>{CHECK}<span><b>Skilled workforce.</b> Masons, steel fixers, carpenters and helpers deployed as each work needs.</span></li>
+      </ul>
+    </div>
+  </section>
+
+{cta_band()}"""
+    return page("machinery.html", "Machinery", "Machinery and resources of Vaibhav Laxmi Builders (VLB): own fleet of road, earthwork, concrete, transport and survey equipment.", body)
+
+
 def careers():
     import urllib.parse as up
     def mail(subject, body):
@@ -625,7 +680,7 @@ def contact():
 
 
 if __name__ == "__main__":
-    pages = [("index.html", home), ("about.html", about), ("services.html", services), ("careers.html", careers), ("contact.html", contact)]
+    pages = [("index.html", home), ("about.html", about), ("services.html", services), ("machinery.html", machinery), ("careers.html", careers), ("contact.html", contact)]
     if SHOW_PROJECTS:
         pages.append(("projects.html", projects))
     else:
