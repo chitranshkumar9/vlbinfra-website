@@ -386,3 +386,10 @@ section.block{padding-block:88px}
 .follow{margin:20px 0 0;font-weight:600}
 .follow a{text-decoration:none;color:var(--ink)}
 .follow a:hover{color:var(--gold)}
+
+/* Quality & safety */
+.qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.qs{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);padding:28px;min-width:0}
+.qs h3{font-size:26px;text-transform:uppercase;margin-bottom:18px}
+.qs .scope{grid-template-columns:1fr}
+@media (max-width:900px){.qs-grid{grid-template-columns:1fr}}

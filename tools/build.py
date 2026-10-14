@@ -523,6 +523,37 @@ def services():
     </div>
   </section>
 
+  <section class="block" id="quality" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Quality &amp; safety</span><h2>Built to specification</h2></div>
+        <p>How we make sure every work meets the department's standards, and every site stays safe.</p>
+      </div>
+      <div class="qs-grid">
+        <div class="qs">
+          <h3>Quality control</h3>
+          <ul class="scope">
+            <li>Materials checked against approved specifications before use</li>
+            <li>Concrete cube, slump and sieve tests on site</li>
+            <li>Levels and alignments verified by survey instruments</li>
+            <li>Stage-wise inspection with department engineers</li>
+            <li>Joint measurements and complete records at handover</li>
+          </ul>
+        </div>
+        <div class="qs">
+          <h3>Site safety</h3>
+          <ul class="scope">
+            <li>Helmets, safety shoes and reflective jackets on site</li>
+            <li>Barricading and signage on road and traffic works</li>
+            <li>Trained operators for all heavy machinery</li>
+            <li>Safe scaffolding and shuttering practices</li>
+            <li>Daily site briefings by supervisors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
 {cta_band()}'''
     return page("services.html", "Services", "Services of Vaibhav Laxmi Builders: roads, highways and bypasses, bridges, irrigation works, schools and colleges, and government buildings.", body)
 
@@ -722,3 +753,29 @@ if __name__ == "__main__":
     for name, fn in pages:
         (ROOT / name).write_text(clean_links(fn()), encoding="utf-8")
         print("built", name)
+
+    # 404 page (served by GitHub Pages for any unknown address, so asset paths are absolute)
+    nf = page("404.html", "Page not found", "Page not found.", f'''{page_hero("404", "Page not found", "The page you were looking for does not exist or has moved.")}
+
+  <section class="block">
+    <div class="wrap">
+      <div class="actions">
+        <a class="btn btn-navy" href="index.html">Go to the home page</a>
+        <a class="btn btn-gold" href="contact.html">Contact VLB</a>
+      </div>
+    </div>
+  </section>''')
+    nf = clean_links(nf).replace('href="assets/', 'href="/assets/').replace('src="assets/', 'src="/assets/')
+    nf = nf.replace('<meta property="og:type"', '<meta name="robots" content="noindex">\n<meta property="og:type"', 1)
+    (ROOT / "404.html").write_text(nf, encoding="utf-8")
+    print("built 404.html")
+
+    # Search engines: sitemap + robots
+    base = "https://www.vlbinfra.com/"
+    urls = ["" if n == "index.html" else n[:-5] for n, _ in pages]
+    sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    sm += [f"  <url><loc>{base}{u}</loc></url>" for u in urls]
+    sm.append("</urlset>")
+    (ROOT / "sitemap.xml").write_text("\n".join(sm) + "\n", encoding="utf-8")
+    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {base}sitemap.xml\n", encoding="utf-8")
+    print("built sitemap.xml, robots.txt")
