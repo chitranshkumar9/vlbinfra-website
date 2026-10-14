@@ -63,6 +63,22 @@ SERVICES = [
     },
 ]
 
+# Careers: roles VLB hires for. Set "open": True for a role with a current vacancy.
+CAREER_ROLES = [
+    {"title": "Site Engineer (Civil)", "type": "Full time", "location": "Delhi NCR sites",
+     "summary": "Runs day-to-day execution on site: layout, RCC and road works, quality checks, measurements and daily reporting.",
+     "needs": "B.Tech / Diploma in Civil Engineering", "open": False},
+    {"title": "Site Supervisor", "type": "Full time", "location": "Delhi NCR sites",
+     "summary": "Manages labour, materials and daily progress on site, working with the site engineer.",
+     "needs": "Experience on civil construction sites", "open": False},
+    {"title": "Billing & Quantity Engineer", "type": "Full time", "location": "Office + sites",
+     "summary": "Prepares measurements, running bills and BOQ quantities for government works.",
+     "needs": "Civil Engineering background; knowledge of government billing", "open": False},
+    {"title": "Surveyor", "type": "Full time", "location": "Delhi NCR sites",
+     "summary": "Levels, alignments and setting-out for roads, bridges, canals and buildings.",
+     "needs": "Experience with auto level / total station", "open": False},
+]
+
 # Projects. Add one entry per project; photos go in images/projects/.
 # status: "done" or "ongoing".  category: one of the SERVICES names.
 PROJECTS = [
@@ -122,6 +138,7 @@ NAV = [("index.html", "Home"), ("about.html", "About"), ("services.html", "Servi
 SHOW_PROJECTS = False   # set True to bring back the Projects page and the home "Recent works" section
 if SHOW_PROJECTS:
     NAV.append(("projects.html", "Projects"))
+NAV.append(("careers.html", "Careers"))
 
 e = html.escape
 
@@ -488,6 +505,74 @@ def projects():
     return page("projects.html", "Projects", "Completed and ongoing government projects by Vaibhav Laxmi Builders (VLB) across Delhi NCR.", body)
 
 
+def careers():
+    import urllib.parse as up
+    def mail(subject, body):
+        return "mailto:" + EMAIL + "?subject=" + up.quote(subject) + "&body=" + up.quote(body)
+    cards = [
+        ("Real government works", "Work on roads, bridges, irrigation works and public buildings for State and Central Government departments."),
+        ("Learn on site", "Hands-on experience from setting-out to final measurement, alongside experienced engineers and supervisors."),
+        ("Safety first", "Safety equipment and clear site practices on every work we execute."),
+        ("Grow with us", "Responsibility grows with performance. Good engineers move up to run their own sites."),
+    ]
+    why = "\n".join(f"""        <div class="why"><h3>{e(t)}</h3><p>{e(d)}</p></div>""" for t, d in cards)
+    roles = []
+    for r in CAREER_ROLES:
+        badge = '<span class="status ongoing">Hiring now</span>' if r.get("open") else ""
+        href = mail(f"Application: {r['title']}", f"Hello VLB team,\n\nI would like to apply for the {r['title']} role.\n\nName:\nPhone:\nExperience:\n\n(Please attach your resume.)")
+        roles.append(f"""        <article class="role">
+          <div class="role-main">
+            <h3>{e(r['title'])}</h3>
+            <p>{e(r['summary'])}</p>
+            <ul class="role-meta"><li>{e(r['type'])}</li><li>{e(r['location'])}</li><li>{e(r['needs'])}</li></ul>
+          </div>
+          <div class="role-act">{badge}<a class="btn btn-navy" href="{e(href)}">Apply →</a></div>
+        </article>""")
+    general = mail("Resume for VLB", "Hello VLB team,\n\nI would like to work with Vaibhav Laxmi Builders.\n\nName:\nPhone:\nRole I am interested in:\nExperience:\n\n(Please attach your resume.)")
+    body = f"""{page_hero("Careers", "Build your career with VLB", "We hire engineers, supervisors and site teams for government works across Delhi NCR.")}
+
+  <section class="block">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Why VLB</span><h2>Work that gets built</h2></div>
+        <p>What you can expect when you join our team.</p>
+      </div>
+      <div class="why-grid">
+{why}
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="roles" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Roles</span><h2>Who we hire</h2></div>
+        <p>The roles we regularly hire for. Send your resume for any of them and we will contact you when there is a vacancy.</p>
+      </div>
+      <div class="roles">
+{chr(10).join(roles)}
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="enquiry">
+        <div>
+          <span class="eyebrow">Apply</span>
+          <h2>Don't see your role?</h2>
+          <p>Send us your resume anyway. Email it to <b>{EMAIL}</b> or share it on WhatsApp at <b>{PHONE_DISPLAY}</b>.</p>
+        </div>
+        <div class="apply-actions">
+          <a class="btn btn-gold" href="{e(general)}">Email your resume</a>
+          <a class="btn btn-navy" href="https://wa.me/{WHATSAPP}?text={up.quote('Hello VLB team, I would like to share my resume for a job at Vaibhav Laxmi Builders.')}" target="_blank" rel="noopener">Send on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>"""
+    return page("careers.html", "Careers", "Careers at Vaibhav Laxmi Builders (VLB): site engineer, supervisor, billing and survey roles on government works across Delhi NCR.", body)
+
+
 def contact():
     body = f'''{page_hero("Contact", "Contact us", "For tenders, enquiries, vendor and subcontracting partnerships, call or write to us.")}
 
@@ -540,7 +625,7 @@ def contact():
 
 
 if __name__ == "__main__":
-    pages = [("index.html", home), ("about.html", about), ("services.html", services), ("contact.html", contact)]
+    pages = [("index.html", home), ("about.html", about), ("services.html", services), ("careers.html", careers), ("contact.html", contact)]
     if SHOW_PROJECTS:
         pages.append(("projects.html", projects))
     else:

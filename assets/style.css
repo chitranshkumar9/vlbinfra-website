@@ -337,3 +337,20 @@ section.block{padding-block:88px}
 .nav{order:2;margin-left:auto}
 .menu-btn{order:4}
 @media (max-width:760px){.theme-btn{margin-left:auto}.menu-btn{margin-left:8px}}
+
+/* Careers */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.why{background:var(--surface);padding:28px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-top:3px solid var(--gold);margin-top:-1px;min-width:0}
+.why h3{font-size:22px;text-transform:uppercase;margin-bottom:10px}
+.why p{margin:0;color:var(--muted);font-size:16px}
+.roles{display:grid;gap:16px}
+.role{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:var(--surface);border:1px solid var(--line);padding:24px 28px}
+.role-main{min-width:0}
+.role h3{font-size:26px;text-transform:uppercase}
+.role p{margin:8px 0 0;color:var(--muted);max-width:46em}
+.role-meta{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.role-meta li{font:500 12px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);padding:7px 10px;border-radius:2px;color:var(--muted)}
+.role-act{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.apply-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;align-content:center}
+@media (max-width:900px){.why-grid{grid-template-columns:1fr 1fr}.role{grid-template-columns:1fr}.role-act{align-items:flex-start;flex-direction:row}}
+@media (max-width:560px){.why-grid{grid-template-columns:1fr}.role{padding:20px}}
