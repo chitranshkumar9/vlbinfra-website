@@ -433,35 +433,32 @@ def about():
 
   <section class="block">
     <div class="wrap">
-      <div class="about-grid">
-        <div>
-          <span class="eyebrow">Our story</span>
-          <p class="big" style="margin-top:16px">From Saharanpur to Delhi NCR.</p>
+      <div class="story">
+        <span class="eyebrow">Our story</span>
+        <h2>A Class 1 contractor building public infrastructure across Delhi NCR</h2>
+        <div class="story-cols">
+          <p>Vaibhav Laxmi Builders is an A+ / Class 1 registered government contractor. We execute roads, highways, bypasses, bridges, irrigation works, schools, colleges and government buildings for State and Central Government departments across Delhi NCR.</p>
+          <p>What began as a regional contractor in western Uttar Pradesh is today a full-service civil contractor, with its own machinery, site teams and testing set-up, handling every stage of a government work from tender to final handover.</p>
         </div>
-        <div>
-          <p>Vaibhav Laxmi Builders began in Saharanpur, a tier-2 city in western Uttar Pradesh. The company grew alongside the city, taking on larger government works as its reputation for quality and on-time delivery grew.</p>
-          <p>Building on that base, VLB expanded to Delhi NCR, where it now executes major works for State and Central Government departments.</p>
-          <p>Vaibhav Laxmi Builders is an A+ / Class 1 registered government contractor, trusted by State and Central Government departments across Delhi NCR with roads, highways, bypasses, bridges, irrigation works, schools, colleges and government buildings.</p>
-          <p>We work to the department's drawings, specifications and timelines, with our own engineers, supervisors, labour and machinery on every site.</p>
-        </div>
+      </div>
+      <div class="story-stats">
+        <div><b>A+ / Class 1</b><span>Registered government contractor</span></div>
+        <div><b>State &amp; Central</b><span>Government departments served</span></div>
+        <div><b>6</b><span>Lines of civil works</span></div>
+        <div><b>100%</b><span>On-time delivery</span></div>
       </div>
     </div>
   </section>
 
   <section class="block" id="leadership" style="padding-top:0">
     <div class="wrap">
-      <div class="head">
-        <div><span class="eyebrow">Leadership</span><h2>The people behind VLB</h2></div>
-        <p>VLB is led by its founder, who built the company from the ground up.</p>
+      <div class="leader">
+        <span class="eyebrow">Leadership</span>
+        <h2>Reena Indauria</h2>
+        <span class="leader-role">Founder &amp; Proprietor</span>
+        <p>Reena Indauria founded Vaibhav Laxmi Builders and built it from the ground up. As proprietor, she sets the direction of the company: the works VLB takes on, the standards it holds on every site, and the long-standing relationships it has built with government departments.</p>
+        <p>Her focus on quality, on-time delivery and trust is what took VLB from a regional contractor to a Class 1 firm working across Delhi NCR.</p>
       </div>
-      <article class="leader">
-        <div class="leader-mark" aria-hidden="true">RI</div>
-        <div>
-          <h3>Reena Indauria</h3>
-          <span class="leader-role">Founder &amp; Proprietor</span>
-          <p>Reena Indauria founded Vaibhav Laxmi Builders in Saharanpur and built it from scratch. Under her leadership, VLB earned a reputation for quality work, on-time delivery and the trust of State and Central Government departments, and grew from Saharanpur into Delhi NCR.</p>
-        </div>
-      </article>
     </div>
   </section>
 
