@@ -162,6 +162,14 @@ NAV.append(("careers.html", "Careers"))
 e = html.escape
 
 
+def clean_links(doc):
+    """Use clean addresses: index.html -> /, about.html -> /about (GitHub Pages serves both)."""
+    import re
+    doc = re.sub(r'href="index\.html(#[^"]*)?"', lambda m: f'href="/{m.group(1) or ""}"', doc)
+    doc = re.sub(r'href="([a-z-]+)\.html(#[^"]*)?"', lambda m: f'href="/{m.group(1)}{m.group(2) or ""}"', doc)
+    return doc
+
+
 def asset_version(rel):
     """Short content hash so browsers fetch a fresh copy whenever the file changes."""
     return hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
@@ -192,7 +200,8 @@ def page(filename, title, description, body):
 <meta property="og:title" content="{e(full_title)}">
 <meta property="og:description" content="{e(description)}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.vlbinfra.com/{'' if filename == 'index.html' else filename}">
+<meta property="og:url" content="https://www.vlbinfra.com/{'' if filename == 'index.html' else filename[:-5]}">
+<link rel="canonical" href="https://www.vlbinfra.com/{'' if filename == 'index.html' else filename[:-5]}">
 <meta property="og:image" content="https://www.vlbinfra.com/assets/logo.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -706,10 +715,10 @@ if __name__ == "__main__":
     else:
         (ROOT / "projects.html").write_text(
             '<!doctype html><html lang="en"><head><meta charset="utf-8">'
-            '<meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=index.html">'
+            '<meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=/">'
             '<link rel="canonical" href="https://www.vlbinfra.com/"><title>VLB</title></head>'
-            '<body><p><a href="index.html">Go to the Vaibhav Laxmi Builders home page</a></p></body></html>\n',
+            '<body><p><a href="/">Go to the Vaibhav Laxmi Builders home page</a></p></body></html>\n',
             encoding="utf-8")
     for name, fn in pages:
-        (ROOT / name).write_text(fn(), encoding="utf-8")
+        (ROOT / name).write_text(clean_links(fn()), encoding="utf-8")
         print("built", name)
