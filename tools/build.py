@@ -67,9 +67,9 @@ SERVICES = [
 MACHINERY = [
     ("Earthwork & road machinery", "road",
      ["JCB / backhoe loaders", "Excavators", "Motor graders", "Vibratory & tandem road rollers",
-      "Hot mix plant", "Paver finishers", "Water tankers"]),
+      "Paver finishers", "Water tankers"]),
     ("Concrete & building", "tower",
-     ["Concrete mixers", "Transit mixers", "Batching plant", "Needle & plate vibrators",
+     ["Concrete mixers", "Transit mixers", "Needle & plate vibrators",
       "Steel shuttering & scaffolding"]),
     ("Transport & lifting", "truck",
      ["Tipper & dumper trucks", "Tractor-trolleys", "Hydra cranes"]),
