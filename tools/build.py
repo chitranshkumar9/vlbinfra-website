@@ -291,7 +291,7 @@ def particulars():
     return f'''      <aside class="sheet" aria-label="Contractor particulars">
         <h2>Contractor particulars</h2>
         <dl>
-          <dt>Firm</dt><dd>Vaibhav Laxmi Builders</dd>
+          <dt>Company</dt><dd>Vaibhav Laxmi Builders</dd>
           <dt>Category</dt><dd>Government civil contractor</dd>
           <dt>Registration</dt><dd>{e(REGISTRATION)}</dd>
           <dt>Works for</dt><dd>Delhi NCR Govt. departments</dd>
@@ -466,7 +466,7 @@ def about():
         <h2>Reena Indauria</h2>
         <span class="leader-role">Founder</span>
         <p>Reena Indauria founded Vaibhav Laxmi Builders and built it from the ground up. As founder, she sets the direction of the company: the works VLB takes on, the standards it holds on every site, and the long-standing relationships it has built with government departments.</p>
-        <p>Her focus on quality, on-time delivery and trust is what took VLB from a regional contractor to a Class 1 firm working across Delhi NCR.</p>
+        <p>Her focus on quality, on-time delivery and trust is what took VLB from a regional contractor to a Class 1 contractor working across Delhi NCR.</p>
       </div>
     </div>
   </section>
