@@ -15,6 +15,7 @@ PHONE_DISPLAY = "+91 80776 76214"
 PHONE_TEL = "+918077676214"
 WHATSAPP = "918077676214"
 EMAIL = "info@vlbinfra.com"
+LINKEDIN = "https://www.linkedin.com/company/vlb-vaibhav-laxmi-builders/"
 ADDRESS = "3/2561, Dehradun Road, Janak Nagar, Saharanpur, Uttar Pradesh 247001"
 MAPS = "https://www.google.com/maps/search/?api=1&query=3%2F2561+Dehradun+Road+Janak+Nagar+Saharanpur+247001"
 
@@ -145,6 +146,7 @@ ICONS = {
 CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg>'
 PHONE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>'
 WA_SVG = '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.5-.3z"/></svg>'
+LI_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.79-1.7-2.79-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg>'
 SKYLINE = '''<svg class="skyline" viewBox="0 0 600 420" fill="none" stroke="#c49a3e" stroke-width="3" aria-hidden="true">
       <path d="M40 420V250h90v170M130 420V150l70-40v310M200 420V60h80v360M280 420V180h70v240M350 420V120l90 40v260M440 420V230h110v190"/>
       <path d="M220 100h40M220 150h40M220 200h40M220 250h40M220 300h40M370 170h50M370 220h50M370 270h50M370 320h50M150 190h30M150 240h30M150 290h30"/>
@@ -247,6 +249,7 @@ def page(filename, title, description, body):
           <li>{e(ADDRESS)}</li>
           <li><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></li>
           <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
+          <li><a class="li-link" href="{LINKEDIN}" target="_blank" rel="noopener">{LI_SVG}LinkedIn</a></li>
         </ul>
       </div>
     </div>
@@ -433,13 +436,32 @@ def about():
       <div class="about-grid">
         <div>
           <span class="eyebrow">Our story</span>
-          <p class="big" style="margin-top:16px">Building the public infrastructure of Delhi NCR.</p>
+          <p class="big" style="margin-top:16px">From Saharanpur to Delhi NCR.</p>
         </div>
         <div>
+          <p>Vaibhav Laxmi Builders began in Saharanpur, a tier-2 city in western Uttar Pradesh. The company grew alongside the city, taking on larger government works as its reputation for quality and on-time delivery grew.</p>
+          <p>Building on that base, VLB expanded to Delhi NCR, where it now executes major works for State and Central Government departments.</p>
           <p>Vaibhav Laxmi Builders is an A+ / Class 1 registered government contractor, trusted by State and Central Government departments across Delhi NCR with roads, highways, bypasses, bridges, irrigation works, schools, colleges and government buildings.</p>
           <p>We work to the department's drawings, specifications and timelines, with our own engineers, supervisors, labour and machinery on every site.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="block" id="leadership" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Leadership</span><h2>The people behind VLB</h2></div>
+        <p>VLB is led by its founder, who built the company from the ground up.</p>
+      </div>
+      <article class="leader">
+        <div class="leader-mark" aria-hidden="true">RI</div>
+        <div>
+          <h3>Reena Indauria</h3>
+          <span class="leader-role">Founder &amp; Proprietor</span>
+          <p>Reena Indauria founded Vaibhav Laxmi Builders in Saharanpur and built it from scratch. Under her leadership, VLB earned a reputation for quality work, on-time delivery and the trust of State and Central Government departments, and grew from Saharanpur into Delhi NCR.</p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -650,6 +672,7 @@ def contact():
           <a class="go" href="mailto:{EMAIL}">Write to us →</a>
         </div>
       </div>
+      <p class="follow"><a class="li-link" href="{LINKEDIN}" target="_blank" rel="noopener">{LI_SVG}Follow VLB on LinkedIn →</a></p>
     </div>
   </section>
 
